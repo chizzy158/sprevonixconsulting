@@ -52,6 +52,8 @@ The deployment completed successfully and the website was accessible through the
 
 
 Screenshots
+<img width="1040" height="536" alt="image" src="https://github.com/user-attachments/assets/396c6ec3-20b5-4ab9-ae6e-0876a87946bd" />
+
 Screenshot 1 Creating Github Repository for this project.
  
 Screenshot 2 — Files uploaded-Browser showing index.html, main.js and style.css already uploaded in repository file folder
