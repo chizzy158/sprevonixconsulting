@@ -30,9 +30,12 @@ Screenshot 2 — Files uploaded-Browser showing index.html, main.js and style.cs
  <img width="1028" height="555" alt="image" src="https://github.com/user-attachments/assets/24b586ad-1608-45ea-b86f-def627f3b03d" />
 
 
+
 Reflection
 
 The initial phase of the project established the foundational architecture for the entire system. Maintaining the application as a static website, consisting of only five files and lacking server-side dependencies, ensures compatibility with Amazon S3 hosting. For startups such as Sprevonix Consulting, presenting a clean, organized, and well-documented GitHub repository to potential investors signals robust engineering practices and a commitment to professional development standards.
+
+
 
 
 
