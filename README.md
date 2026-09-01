@@ -14,7 +14,7 @@ The deployment completed successfully and the website was accessible through the
 
 
 
-Screenshots
+
 <img width="1040" height="536" alt="image" src="https://github.com/user-attachments/assets/396c6ec3-20b5-4ab9-ae6e-0876a87946bd" />
 
 Screenshot 1 Creating Github Repository for this project.
@@ -28,6 +28,7 @@ The initial phase of the project established the foundational architecture for t
 
 
 Part 2 — Static Website Hosting on Amazon S3
+
 Description
 	The objective of Part 2 is to host the Sprevonix consulting static website on Amazon S3. Amazon S3 offers highly available, durable, and cost-efficient object storage services. By enabling the Static Website Hosting feature, S3 can deliver HTML, CSS, and JavaScript files directly to users over the internet without the need for server administration or maintenance.
 Preparation
@@ -40,29 +41,28 @@ The Host a static website option was selected, and 'index.html' was entered in t
 The Permissions tab of the S3 bucket was accessed. For direct S3 website hosting, the bucket was configured to allow public read access to the website files.
 The properties tab of the S3 bucket was accessed to locate the static website hosting section, where it was enabled as seen in screenshot 6 and thereafter the link bucket website endpoint was opened as seen in screenshot 7.
 
-Screenshots
+
 Screenshot 3-S3 Bucket Created
-
- 
-
-
-
-
+ <img width="1019" height="528" alt="image" src="https://github.com/user-attachments/assets/0b215ff9-213a-41f2-9cd9-f6eb7ce27168" />
 
 
 Screenshot 4-Files Uploaded to S3(S3 bucket root showing index.html, style.css, main.js, etc. uploaded)
  
+<img width="1013" height="510" alt="image" src="https://github.com/user-attachments/assets/f85328a1-974a-4fd1-aa57-5a89901f3a87" />
 
 Screenshot 5 — 
 
- 
+ <img width="900" height="417" alt="image" src="https://github.com/user-attachments/assets/5948c5cd-1446-4c28-815c-93df858931c2" />
+
 
 
 Screenshot 6 — Static Website Hosting Enabled and S3 static endpoint website was tested.
- 
+ <img width="909" height="469" alt="image" src="https://github.com/user-attachments/assets/998ff577-3072-4708-9b5c-393a29f36ba5" />
+
 
 Screenshot 7 — Static Website Hosting Enabled and S3 static endpoint website was tested.
- 
+ <img width="916" height="496" alt="image" src="https://github.com/user-attachments/assets/2a0fae7f-233e-4e2b-887e-bf5c5349ae77" />
+
 Reflection
 Deploying a static website on Amazon S3 represents a highly cost-effective strategy within cloud engineering. Given that SprevonixConsult is a fully static application with no backend processing or database queries during page loads, Amazon S3 is an optimal hosting platform. 
 A critical consideration during deployment is the requirement to upload all website files directly to the root directory of the S3 bucket. Placing files within a subfolder can prevent the S3 static website hosting service from locating the index.html file, resulting in a 404 error. To ensure proper website loading, all necessary files should be present in the bucket’s objects tab, not nested in subdirectories.
