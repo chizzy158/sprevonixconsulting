@@ -95,13 +95,19 @@ Initially, the website was accessible exclusively via the S3 endpoint over unenc
 
 
 Part 3 — HTTPS Delivery with Amazon CloudFront
+
+
 Description
+
 The purpose of this section is to configure Amazon CloudFront in front of the Amazon S3 bucket so that the Sprevonix website can be delivered securely over HTTPS. CloudFront also improves the performance of the website by delivering content through AWS edge locations around the world.
 The services utilized in this phase include:
 •	Amazon CloudFront CDN – Delivers website content globally while enforcing HTTPS connections.
 •	Origin Access Control (OAC) – Prevents direct access to the S3 bucket by allowing only CloudFront to serve the website files.
 •	Default CloudFront SSL Certificate – Provides free HTTPS support through the cloudfront.net subdomain.
+
+
 Preparation
+
 The AWS Management Console is accessed, and CloudFront is entered into the AWS search bar. CloudFront is then selected from the available AWS services. On the CloudFront dashboard, create distribution is selected to begin configuring a new CloudFront distribution. Under the Origin section, the S3 bucket created in Part 2 is selected from the origin domain dropdown menu as shown in screenshot 8. For this project, the sprevonixconsult S3 bucket is selected as the origin. This allows CloudFront to retrieve the website files stored in the S3 bucket and deliver them to users.
 Next, Origin Access Control (OAC) is configured for the S3 origin. If an OAC has not already been created, a new one is created using the recommended settings. OAC allows CloudFront to access the files stored in the S3 bucket while preventing users from directly accessing the bucket. This provides an additional layer of security by ensuring that website content is delivered through CloudFront.
 For the SSL/TLS certificate configuration, the Default CloudFront Certificate (*.cloudfront.net) is selected. This certificate allows the website to be securely accessed using the CloudFront domain name without requiring a custom domain or a separate SSL certificate from AWS Certificate Manager. The Default root object is then configured by entering index.html. This ensures that the website's homepage is automatically displayed when users enter the CloudFront domain name without specifying a particular webpage or file.
@@ -143,19 +149,28 @@ Screenshot 11 — Site Loading Over HTTPS
  <img width="1019" height="546" alt="image" src="https://github.com/user-attachments/assets/ddf4f2a7-990e-4ce8-b3cb-8346352d6fe5" />
 
 
+
 Reflection
+
 Part 3 focused on the project’s most important security objective: enforcing HTTPS across the platform. The default CloudFront certificate delivers the same end-to-end TLS encryption as a custom ACM certificate; the primary distinction is that the application uses a cloudfront.net URL instead of a custom domain. For a minimum viable product (MVP) intended for investor demonstrations, this approach is both practical and sufficient.
 The implementation of Origin Access Control (OAC) significantly strengthened the platform’s security posture. By enabling OAC, the S3 bucket is kept private and cannot be accessed directly, even if someone discovers the bucket’s URL. Instead, all requests are routed through CloudFront, allowing future security controls—such as AWS WAF rules, geo-blocking, and rate limiting—to be applied at the content delivery network (CDN) layer.
 In addition, the “Redirect HTTP to HTTPS” policy ensures that users who enter http:// are automatically redirected to a secure connection without interruption. This configuration eliminates unsecured HTTP access, satisfies the project’s security requirements, and provides users with a seamless browsing experience while protecting data in transit.
 
+
+
+
 Part 4 — Creation of the AWS Code Pipeline
+
 Description
+
 In this section, AWS CodePipeline is set up to automate deploying the Sprevonix website from the GitHub repository to the Amazon S3 bucket. CodePipeline creates a continuous delivery workflow that detects changes in the source code and automatically moves them through each stage, and avoid deploying the updates manually.
 The following services are used in this phase:
+
 •	AWS CodePipeline automates the continuous delivery process by moving website files from the source repository to the deployment environment.
 •	GitHub is the source repository where the Sprevonix website files are stored and updated.
 •	GitHub Connection provides a secure link that lets AWS CodePipeline access the GitHub repository and detect any changes.
 •	Amazon S3 – Serves as the deployment destination where CodePipeline stores and hosts the website files. 
+
 Preparation
 
 After GitHub and Amazon S3 have been prepared as shown in part 1 and 2 respectively, AWS Code Pipeline is configured to automate the deployment of the website files from GitHub to the S3 bucket. The process is as below,
@@ -205,7 +220,9 @@ Screenshot 16 — Code pipeline deployment page
 Screenshot 17 — Code pipeline created.
  <img width="1023" height="526" alt="image" src="https://github.com/user-attachments/assets/0c20cac2-3a67-4f81-af26-51391e0e99b4" />
 
+
 Reflection
+
 Integrating Amazon S3, GitHub, and AWS CodePipeline
 Integrating GitHub, AWS CodePipeline, and Amazon S3 enabled an automated deployment workflow for the Sprevonix consulting website. Each service played a distinct role: GitHub acted as the source code repository, AWS CodePipeline managed and automated the deployment process, and Amazon S3 served as the storage and hosting platform for the static website files. This integration established the following workflow:
 GitHub → AWS CodePipeline → Amazon S3 → Website
@@ -219,15 +236,21 @@ The Sprevonix application is a static website, no separate software compilation 
 Amazon S3 serves as the deployment destination. The S3 bucket was preconfigured to store the website’s HTML, CSS, and JavaScript files. During deployment, Amazon S3 was selected as the deployment provider, with the existing Sprevonix bucket as the target. When the pipeline executes, CodePipeline retrieves the website files from GitHub, and the S3 deployment action extracts and uploads them to the designated bucket.
 
 Through this implementation, I gained a deeper understanding of integrating cloud services to establish an automated deployment process. GitHub manages the source code, CodePipeline orchestrates the movement and deployment of the code, and S3 stores the deployed website files. Instead of manually transferring files from GitHub to S3 after each update, the pipeline integrates these services into a continuous workflow. This approach simplifies deployment management and provides a robust foundation for future enhancements to the Sprevonix website.
+
 Reflection
+
 Why I used Continuous integration and Continuous deployment CICD. 
+
 In the Sprevonix Consulting project, Continuous Integration and Continuous Deployment (CI/CD) was used to make website deployment faster, more reliable, and less manual. Before setting up the CI/CD pipeline, we had to upload website files to the Amazon S3 bucket manually, however, with CI/CD, updates from GitHub to Amazon S3 are automated, making future changes easier to manage. The project documentation shows that CodePipeline was set up to detect changes in the source code and automatically move them through each deployment stage.
 The CI/CD approach improved the management of future website updates by automating the transfer of changes from GitHub to Amazon S3. Project documentation indicates that CodePipeline was configured to detect source code changes and automatically progress them through the deployment stages.
 
 Another significant motivation for adopting CI/CD was to designate GitHub as the authoritative source for website files. The Sprevonix website comprises HTML, CSS, and JavaScript files, all initially stored in the GitHub repository. Maintaining these files in GitHub enables proper tracking and management of changes prior to deployment. Rather than modifying files directly in the S3 bucket, updates are committed and pushed to the designated GitHub branch. This approach fosters a more organized development workflow and facilitates understanding of the website’s evolution over time.
 Implementing CI/CD further illustrated the value of automation in cloud and DevOps engineering. Upon creation, the pipeline’s initial execution automatically retrieved website files from GitHub and deployed them to the configured S3 bucket. This automation reduced manual intervention required for website updates. Additionally, it demonstrated how integrating various cloud and development services can establish a unified workflow, rather than managing each service in isolation.
+
 In conclusion, using CI/CD made deploying the Sprevonix website more automated, consistent, and efficient. This experience showed how DevOps practices can cut down on repetitive tasks and create a clear process for making website changes. As the website grows, the pipeline will help deploy updates with less manual work.
+
 Part 5 — Custom Domain Registration Using Amazon Route 53
+
 The purpose of this section is to register a custom domain name using Amazon Route 53. A custom domain provides a professional and easy-to-remember website address, such as sprevonixconsulting.com, instead of the default CloudFront domain name, Amazon Route 53 is used for domain registration and DNS management and can be integrated with AWS services such as Amazon CloudFront.
 The AWS Management Console is first accessed using the appropriate AWS account credentials. Route 53 is entered in the AWS search bar and selected from the available services. From the Route 53 dashboard, Domains is selected from the navigation pane, followed by Registered domains. The Register domains option is then selected to begin the registration process.
 Under Search for domain, the desired domain name, such as sprevonixconsulting.com, is entered and searched to confirm its availability. If the domain name is unavailable, an alternative domain name or another supported top-level domain (TLD), such as .net or .org, can be considered.
@@ -235,6 +258,7 @@ Once the desired domain has been confirmed as available, it is selected and adde
 Where supported, privacy protection is enabled so that certain personal contact information is not publicly displayed through domain-registration lookup services. The availability of this feature depends on the selected TLD and its registry requirements.
 Before the registration is submitted, the domain name, registration period, contact information, auto-renewal settings, and registration cost are reviewed to ensure that the information is correct. The applicable terms and conditions are accepted, and the registration request is submitted. The registration is then processed by AWS, and the AWS account is charged based on the registration price of the selected domain.
 After the registration has been successfully completed, the domain is displayed under Registered domains in Route 53. The domain can then be configured to direct website traffic to the existing CloudFront distribution, allowing the website to be accessed through a professional HTTPS address rather than the default cloudfront.net address.
+
 The resulting website architecture is:
 User → Route 53 Custom Domain → CloudFront (HTTPS) → Private Amazon S3 Bucket
 This configuration provides the Sprevonix Consulting website with a professional domain name while maintaining the secure HTTPS delivery and private S3 configuration established through Amazon CloudFront.
