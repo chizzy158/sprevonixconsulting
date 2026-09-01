@@ -1,41 +1,4 @@
-Sprevonix Consult
 
-Lab Documentation
-Cloud & DevOps Capstone Project 2
-
-Student Name	Chizoba Onwuka
-Course	Cloud & DevOps
-Project	Capstone Project — Sprevonix Consult
-Date Submitted	2026-08-31
-Instructor	Dr Agboola
-Platforms	Amazon Web Services (AWS), GitHub
- 
-Table of Contents
-Table of contents
-Part 1 Local Development & GitHub Repository
-Description.............................................................................................................................3
-Preparation............................................................................................................................3
-Observations..........................................................................................................................3
-Screenshots............................................................................................................................4
-Reflection................................................................................................................................5
-Part 2 Static Website Hosting on Amazon S3
-Description............................................................................................................................5
-Preparation............................................................................................................................5
-Screenshots............................................................................................................................6
-Reflection................................................................................................................................9
-Part 3 HTTPS Delivery with Amazon CloudFront
-Description............................................................................................................................9
-Preparation............................................................................................................................9
-Observations..........................................................................................................................11
-Screenshots............................................................................................................................12
-Reflection................................................................................................................................14
-Part 4 Creation of the AWS Code pipeline
-Description ..........................................................................................................................14 
-Preparation………………….................................................................................................15
-Reflection …………………………. .......................................................................................20 
-Part 5 Custom Domain Registration using Amazon Route 53
-Description ..........................................................................................................................22
-References ........................................................................................................................................24
 Part 1 — Local Development & GitHub Repository
 Description
 The objective of Part 1 is to build the Sprevonix consulting website locally and upload all source files to a public GitHub repository. The platform is a static website composed of five files: about.html, contact.html, index.html, style.css, and main.js. The website enables users to view the home page of Sprevonix consulting and look at what they do and the services they offer.
@@ -57,7 +20,8 @@ Screenshots
 Screenshot 1 Creating Github Repository for this project.
  
 Screenshot 2 — Files uploaded-Browser showing index.html, main.js and style.css already uploaded in repository file folder
- 
+ <img width="1028" height="555" alt="image" src="https://github.com/user-attachments/assets/24b586ad-1608-45ea-b86f-def627f3b03d" />
+
 
 Reflection
 The initial phase of the project established the foundational architecture for the entire system. Maintaining the application as a static website, consisting of only five files and lacking server-side dependencies, ensures compatibility with Amazon S3 hosting. For startups such as Sprevonix Consulting, presenting a clean, organized, and well-documented GitHub repository to potential investors signals robust engineering practices and a commitment to professional development standards.
