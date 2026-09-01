@@ -1,12 +1,16 @@
 
 Part 1 — Local Development & GitHub Repository
+
 Description
 The objective of Part 1 is to build the Sprevonix consulting website locally and upload all source files to a public GitHub repository. The platform is a static website composed of five files: about.html, contact.html, index.html, style.css, and main.js. The website enables users to view the home page of Sprevonix consulting and look at what they do and the services they offer.
 
 Preparation
+
 The following preparatory steps were completed to ensure source files are uploaded to GitHub repository.
 First a project folder named sprevonixconsulting was created on the local machine: through the following steps. Github was opened and from the GitHub dashboard, click “+” icon located at the top-right corner of the page was clicked and “New repository” was selected. This opens the repository creation page. Then sprevonixconsulting is added as the name of the repository as shown in screenshot 1 Then Public is selected to make the repository to be visible to everyone. All five website files (about.html, contact.html, index.html, style.css, main.js) were successfully uploaded to the GitHub repository as seen in screenshot 2. Additionally, a README.md file was included to document the project architecture, deployment procedures, and recommendations.
+
 Observations
+
 The deployment completed successfully and the website was accessible through the generated endpoints.
 
 
@@ -14,17 +18,20 @@ The deployment completed successfully and the website was accessible through the
 
 
 
-
+Screenshot 1 Creating Github Repository for this project.
 <img width="1040" height="536" alt="image" src="https://github.com/user-attachments/assets/396c6ec3-20b5-4ab9-ae6e-0876a87946bd" />
 
-Screenshot 1 Creating Github Repository for this project.
+
  
 Screenshot 2 — Files uploaded-Browser showing index.html, main.js and style.css already uploaded in repository file folder
  <img width="1028" height="555" alt="image" src="https://github.com/user-attachments/assets/24b586ad-1608-45ea-b86f-def627f3b03d" />
 
 
 Reflection
+
 The initial phase of the project established the foundational architecture for the entire system. Maintaining the application as a static website, consisting of only five files and lacking server-side dependencies, ensures compatibility with Amazon S3 hosting. For startups such as Sprevonix Consulting, presenting a clean, organized, and well-documented GitHub repository to potential investors signals robust engineering practices and a commitment to professional development standards.
+
+
 
 
 Part 2 — Static Website Hosting on Amazon S3
