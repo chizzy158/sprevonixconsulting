@@ -40,11 +40,19 @@ The initial phase of the project established the foundational architecture for t
 
 
 
+
+
+
 Part 2 — Static Website Hosting on Amazon S3
 
+
 Description
-	The objective of Part 2 is to host the Sprevonix consulting static website on Amazon S3. Amazon S3 offers highly available, durable, and cost-efficient object storage services. By enabling the Static Website Hosting feature, S3 can deliver HTML, CSS, and JavaScript files directly to users over the internet without the need for server administration or maintenance.
+
+The objective of Part 2 is to host the Sprevonix consulting static website on Amazon S3. Amazon S3 offers highly available, durable, and cost-efficient object storage services. By enabling the Static Website Hosting feature, S3 can deliver HTML, CSS, and JavaScript files directly to users over the internet without the need for server administration or maintenance.
+
+
 Preparation
+
 The AWS Management Console was accessed with account credentials. In the search bar, S3 – Scalable Storage in the Cloud was selected to open the Amazon S3 dashboard. On the dashboard, the create bucket option was chosen. The bucket name 'sprevonixconsult' was entered as seen in screenshot 3 and the AWS Region was set to US East (N. Virginia) – us-east-1. Under Object ownership, the recommended option to disable ACLs was retained before creating the bucket.
 The newly created 'sprevonixconsult' bucket was opened, and the required files were uploaded to Amazon S3, as showed in screenshot 4.
 A bucket policy was added to grant the s3:GetObject permission for the website objects as shown in screenshot 5.
@@ -76,10 +84,15 @@ Screenshot 6 — Static Website Hosting Enabled and S3 static endpoint website w
 Screenshot 7 — Static Website Hosting Enabled and S3 static endpoint website was tested.
  <img width="916" height="496" alt="image" src="https://github.com/user-attachments/assets/2a0fae7f-233e-4e2b-887e-bf5c5349ae77" />
 
+
 Reflection
+
 Deploying a static website on Amazon S3 represents a highly cost-effective strategy within cloud engineering. Given that SprevonixConsult is a fully static application with no backend processing or database queries during page loads, Amazon S3 is an optimal hosting platform. 
 A critical consideration during deployment is the requirement to upload all website files directly to the root directory of the S3 bucket. Placing files within a subfolder can prevent the S3 static website hosting service from locating the index.html file, resulting in a 404 error. To ensure proper website loading, all necessary files should be present in the bucket’s objects tab, not nested in subdirectories.
 Initially, the website was accessible exclusively via the S3 endpoint over unencrypted HTTP. Because HTTP does not provide data encryption, it is unsuitable for production environments. This limitation was addressed in part 3 through integrating Amazon CloudFront with S3, which enabled secure HTTPS access.
+
+
+
 
 Part 3 — HTTPS Delivery with Amazon CloudFront
 Description
