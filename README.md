@@ -2,6 +2,7 @@
 Part 1 — Local Development & GitHub Repository
 
 Description
+
 The objective of Part 1 is to build the Sprevonix consulting website locally and upload all source files to a public GitHub repository. The platform is a static website composed of five files: about.html, contact.html, index.html, style.css, and main.js. The website enables users to view the home page of Sprevonix consulting and look at what they do and the services they offer.
 
 Preparation
@@ -19,11 +20,13 @@ The deployment completed successfully and the website was accessible through the
 
 
 Screenshot 1 Creating Github Repository for this project.
+
 <img width="1040" height="536" alt="image" src="https://github.com/user-attachments/assets/396c6ec3-20b5-4ab9-ae6e-0876a87946bd" />
 
 
  
 Screenshot 2 — Files uploaded-Browser showing index.html, main.js and style.css already uploaded in repository file folder
+
  <img width="1028" height="555" alt="image" src="https://github.com/user-attachments/assets/24b586ad-1608-45ea-b86f-def627f3b03d" />
 
 
