@@ -101,16 +101,21 @@ After the configuration has been completed and tested, Amazon CloudFront is able
 
 Screenshots
 Screenshot 8— CloudFront Distribution Deployed 
+<img width="1025" height="518" alt="image" src="https://github.com/user-attachments/assets/09aee18c-ddf6-4c0f-8425-9e6431363f86" />
+
  
 
 Screenshot 9— CloudFront Distribution created
- 
+ <img width="991" height="515" alt="image" src="https://github.com/user-attachments/assets/3addf556-9631-4134-a2b9-7edbab8005ab" />
+
 
 Screenshot 10— CloudFront distribution domain name.
- 
+ <img width="1004" height="528" alt="image" src="https://github.com/user-attachments/assets/003992a7-0280-4f7f-bf1e-48dc38c1303f" />
+
 
 Screenshot 11 — Site Loading Over HTTPS 
- 
+ <img width="1019" height="546" alt="image" src="https://github.com/user-attachments/assets/ddf4f2a7-990e-4ce8-b3cb-8346352d6fe5" />
+
 
 Reflection
 Part 3 focused on the project’s most important security objective: enforcing HTTPS across the platform. The default CloudFront certificate delivers the same end-to-end TLS encryption as a custom ACM certificate; the primary distinction is that the application uses a cloudfront.net URL instead of a custom domain. For a minimum viable product (MVP) intended for investor demonstrations, this approach is both practical and sufficient.
@@ -132,6 +137,7 @@ The AWS Management Console is accessed, and CodePipeline is entered into the AWS
 
 Screenshot 12 — Creation of AWS Code pipeline.
  
+<img width="975" height="478" alt="image" src="https://github.com/user-attachments/assets/989ef588-f2bb-4639-b53f-ce2d96c740c0" />
 
 A pipeline name is then entered. For this project, sprevonixconsulting pipeline is used as the pipeline name. Under Service role, the option to create a new service role is selected so that the required permissions can be provided to CodePipeline. Next is then selected to proceed.
 The GitHub repository is then connected to AWS CodePipeline through the Source stage. Under Source provider, GitHub (via GitHub App) is selected, as shown in screenshot 13. This connection mechanism is used by AWS to authorize CodePipeline to communicate securely with the GitHub repository.
@@ -139,6 +145,7 @@ Under Connection, connect to GitHub is selected. The GitHub authorization page i
 
 Screenshot 13 — GitHub repository connected to AWS CodePipeline through the Source stage.
  
+<img width="975" height="479" alt="image" src="https://github.com/user-attachments/assets/93cfba4c-6426-4173-b3d0-510f988a46a1" />
 
 
 
@@ -147,10 +154,12 @@ Screenshot 13 — GitHub repository connected to AWS CodePipeline through the So
 
 
 Screenshot 14 — The GitHub authorization page
- 
+ <img width="504" height="555" alt="image" src="https://github.com/user-attachments/assets/0ec1bb77-687b-422c-b334-51ee4733be18" />
+
 The connection should eventually display an Available status as seen in screenshot 15.
 Screenshot 15 — GitHub Connection Status
- 
+ <img width="963" height="460" alt="image" src="https://github.com/user-attachments/assets/4f60c540-d818-4fa9-9e5d-a5b724d7f25e" />
+
 
 Once the connection has been successfully established, the GitHub Source Stage is configured. The repository sprevonix consult is selected as the repository to be monitored by CodePipeline, while main is selected as the source branch. For Output artifact format, CodePipeline default is selected. With this option, the repository files are obtained by CodePipeline and packaged as an artifact that can be passed to the subsequent stages of the pipeline. Next is then selected. At this stage, the connection between GitHub and AWS CodePipeline has been established. Since a separate build process is not required for the static website, the build stage is skipped. The pipeline configuration is then continued to the deployment stage.
 The next step is to connect CodePipeline to Amazon S3, On the Add deploy stage page, select: Deploy provider: Amazon S3, Select the S3 bucket created earlier and Click Next.
@@ -164,10 +173,12 @@ The completed pipeline therefore establishes an automated deployment workflow be
 
 
 Screenshot 16 — Code pipeline deployment page
+<img width="975" height="511" alt="image" src="https://github.com/user-attachments/assets/d5c9046e-967c-4786-9e78-93b20bb396de" />
 
  
 Screenshot 17 — Code pipeline created.
- 
+ <img width="1023" height="526" alt="image" src="https://github.com/user-attachments/assets/0c20cac2-3a67-4f81-af26-51391e0e99b4" />
+
 Reflection
 Integrating Amazon S3, GitHub, and AWS CodePipeline
 Integrating GitHub, AWS CodePipeline, and Amazon S3 enabled an automated deployment workflow for the Sprevonix consulting website. Each service played a distinct role: GitHub acted as the source code repository, AWS CodePipeline managed and automated the deployment process, and Amazon S3 served as the storage and hosting platform for the static website files. This integration established the following workflow:
@@ -204,7 +215,9 @@ This configuration provides the Sprevonix Consulting website with a professional
 
 Screenshot 18 — Creation of Amazon Route 53
 
- 
+ <img width="900" height="386" alt="image" src="https://github.com/user-attachments/assets/73abd752-a48f-4492-ad8a-e3992ac3e4e8" />
+
+<img width="900" height="389" alt="image" src="https://github.com/user-attachments/assets/ac6a0a2b-03a6-44c8-8e6a-c93bfc75d3c8" />
 
 
 
